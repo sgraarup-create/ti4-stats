@@ -34,7 +34,7 @@ const games = [
       { player: "Sophus", faction: "The Nekro Virus", points: 7, winner: false },
       { player: "Magnus", faction: "The Emirates of Hacan", points: 6, winner: false },
       { player: "Frederik", faction: "The Mentak Coalition", points: 8, winner: false },
-      { player: "Andreas", faction: "The Barony of letnev", points: 8, winner: false },
+      { player: "Andreas", faction: "The Barony of Letnev", points: 8, winner: false },
       { player: "Peter", faction: "The Yin Brotherhood", points: 10, winner: true }
     ]
   },
