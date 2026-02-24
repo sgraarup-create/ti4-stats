@@ -81,7 +81,7 @@ const games = [
     ]
   },
   {
-    id: 8,
+    id: 9,
     results: [
       { player: "Sophus", faction: "The Vuil'raith Cabal", points: 8, winner: false },
       { player: "David", faction: "The Embers of Muaat", points: 6, winner: false },
@@ -142,3 +142,4 @@ playerArray.forEach(p => {
 });
 
 playerHtml += "</table>";
+document.getElementById("playerStats").innerHTML = playerHtml;
