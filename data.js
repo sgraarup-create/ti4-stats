@@ -44,7 +44,7 @@ const games = [
       { player: "Sophus", faction: "The Nekro Virus", points: 10, winner: true },
       { player: "Magnus", faction: "The Nomad", points: 7, winner: false },
       { player: "Kewin", faction: "The Sardakk N'orr", points: 9, winner: false },
-      { player: "Andreas", faction: "The clan of Saar", points: 9, winner: false }
+      { player: "Andreas", faction: "The Clan of Saar", points: 9, winner: false }
     ]
   },
   {
