@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,4 +64,71 @@ document.getElementById("factionStats").innerHTML = html;
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TI4 Stats</title>
+  <style>
+    table { border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid #555; padding: 6px 10px; }
+    th { background: #eee; }
+  </style>
+</head>
+<body>
+
+<h1>TI4 Statistics</h1>
+
+<div id="factionStats"></div>
+<div id="playerStats"></div>
+
+<script src="data.js"></script>
+<script>
+// Beregn Faction stats
+const factionStats = {};
+
+games.forEach(game => {
+  game.results.forEach(r => {
+    if (!factionStats[r.faction]) {
+      factionStats[r.faction] = { played: 0, wins: 0, totalPoints: 0, gamesWithPoints: 0 };
+    }
+    factionStats[r.faction].played++;
+    if (r.winner) factionStats[r.faction].wins++;
+
+    if (r.points !== null && r.points !== undefined) {
+      factionStats[r.faction].totalPoints += r.points;
+      factionStats[r.faction].gamesWithPoints++;
+    }
+  });
+});
+
+let html = "<h2>Faction Stats</h2>";
+html += "<table><tr><th>Faction</th><th>Played</th><th>Wins</th><th>Avg Scoring</th><th>Success Rate</th></tr>";
+
+// Konverter factionStats til array og sorter efter mest spillede
+const sortedFactions = Object.entries(factionStats).sort((a, b) => b[1].played - a[1].played);
+
+sortedFactions.forEach(([faction, stats]) => {
+  // Beregn gennemsnitlig score og succesrate
+  const avgScore = stats.gamesWithPoints > 0 ? (stats.totalPoints / stats.gamesWithPoints).toFixed(2) : "N/A";
+  const successRate = stats.played > 0 ? ((stats.wins / stats.played) * 100).toFixed(1) + "%" : "N/A";
+
+  html += `<tr>
+    <td>${faction}</td>
+    <td>${stats.played}</td>
+    <td>${stats.wins}</td>
+    <td>${avgScore}</td>
+    <td>${successRate}</td>
+  </tr>`;
+});
+
+html += "</table>";
+
+// Sæt tabellen på siden
+document.getElementById("factionStats").innerHTML = html;
+</script>
+
+</body>
+>>>>>>> fdc91356f7b4772d58552f90293345ba04cbb56c
 </html>
